@@ -6,6 +6,13 @@ type ListNode struct {
 }
 
 // 利用哈希表
+/*
+复杂度分析
+
+时间复杂度：O(N)，其中 N 是链表中的节点数。最坏情况下我们需要遍历每个节点一次。
+
+空间复杂度：O(N)，其中 N 是链表中的节点数。主要为哈希表的开销，最坏情况下我们需要将每个节点插入到哈希表中一次。
+*/
 func hasCycle(head *ListNode) bool {
 	seen := map[*ListNode]struct{}{}
 	for head != nil {
