@@ -1,4 +1,4 @@
-package lc002
+package lc001_easy
 
 type TreeNode struct {
 	Val   int
@@ -6,21 +6,21 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func maxDepth(root *TreeNode) int {
-	var dfs func(node *TreeNode) int
+func diameterOfBinaryTree(root *TreeNode) int {
+	ans := 1
+	var dfs func(*TreeNode) int
 
 	dfs = func(node *TreeNode) int {
 		if node == nil {
 			return 0
 		}
-
-		lDepth := dfs(node.Left)
-		rDepth := dfs(node.Right)
-
-		return max(lDepth, rDepth) + 1
+		lLen := dfs(node.Left)
+		rLen := dfs(node.Right)
+		ans = max(ans, lLen+rLen+1)
+		return max(lLen, rLen) + 1
 	}
-
-	return dfs(root)
+	dfs(root)
+	return ans - 1
 }
 
 func min(a, b int) int {

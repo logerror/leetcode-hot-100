@@ -1,4 +1,4 @@
-package lc005
+package lc005_mid
 
 func productExceptSelf(nums []int) []int {
 	length := len(nums)
