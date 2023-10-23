@@ -10,7 +10,8 @@ type TreeNode struct {
 func flatten(root *TreeNode) {
 	list := preorderTraversal(root)
 	for i := 1; i < len(list); i++ {
-
+		prev, curr := list[i-1], list[i]
+		prev.Left, prev.Right = nil, curr
 	}
 }
 
