@@ -57,6 +57,39 @@ func kthSmallest(root *TreeNode, k int) int {
 如果 node 的左子树的结点数 left 大于 k−1，则第 k 小的元素一定在 node 的左子树中，令 node 等于其左子结点，并继续搜索。
 在实现中，我们既可以将以每个结点为根结点的子树的结点数存储在结点中，也可以将其记录在哈希表中。
 */
+
+type MyBst struct {
+	root *TreeNode
+	// 统计以每个节点为根节点的子树的节点数
+	nodeNum map[*TreeNode]int
+}
+
+// 统计自身及子树节点数
+func (t *MyBst) countNodeNums(node *TreeNode) int {
+	if node == nil {
+		return 0
+	}
+	t.nodeNum[node] = 1 + t.countNodeNums(node.Left) + t.countNodeNums(node.Right)
+	return t.nodeNum[node]
+}
+
+func (t *MyBst) kthSmallest2(k int) int {
+	node := t.root
+	for {
+		leftNodeNum := t.nodeNum[node.Left]
+		if leftNodeNum < k-1 {
+			node = node.Right
+			k = k - leftNodeNum + 1
+		} else if leftNodeNum == k-1 {
+			return node.Val
+		} else {
+			node = node.Left
+		}
+	}
+}
+
 func kthSmallest2(root *TreeNode, k int) int {
-	return 0
+	t := MyBst{root, map[*TreeNode]int{}}
+	t.countNodeNums(root)
+	return t.kthSmallest2(k)
 }
