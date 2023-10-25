@@ -8,7 +8,7 @@ func searchRange(nums []int, target int) []int {
 		return []int{-1, -1}
 	}
 
-	rightmost := sort.SearchInts(nums, target-1)
+	rightmost := sort.SearchInts(nums, target+1) - 1
 
 	return []int{leftmost, rightmost}
 }
