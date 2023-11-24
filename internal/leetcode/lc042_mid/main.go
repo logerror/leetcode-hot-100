@@ -1,4 +1,4 @@
-package lc042_mid_on
+package lc042_mid
 
 //package main
 
