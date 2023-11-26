@@ -1,5 +1,4 @@
-//package lc039_mid
-package main
+package lc039_mid
 
 func longestConsecutive(nums []int) int {
 	res := 0

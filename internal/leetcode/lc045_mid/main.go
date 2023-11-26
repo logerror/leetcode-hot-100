@@ -1,5 +1,6 @@
-//package lc045_mid
-package main
+package lc045_mid
+
+//package main
 
 import "fmt"
 
