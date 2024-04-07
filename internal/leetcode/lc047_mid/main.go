@@ -40,7 +40,7 @@ func subarraySum2(nums []int, k int) int {
 	return count
 }
 
-//前缀和 + 哈希表优化
+// 前缀和 + 哈希表优化
 func subarraySum3(nums []int, k int) int {
 	count, pre := 0, 0
 	m := map[int]int{}

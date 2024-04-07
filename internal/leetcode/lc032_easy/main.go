@@ -9,7 +9,7 @@ func majorityElement(nums []int) int {
 	return nums[index]
 }
 
-//投票
+// 投票
 func majorityElement2(nums []int) int {
 	var count, target int
 	for _, num := range nums {
