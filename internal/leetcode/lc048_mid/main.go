@@ -1,6 +1,6 @@
 package lc048_mid
 
-import "awesomeProject1/pkg/util"
+import "github.com/logerror/leetcode-hot-100/pkg/util"
 
 // dp
 func maxSubArray(nums []int) int {
